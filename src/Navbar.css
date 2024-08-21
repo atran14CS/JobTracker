@@ -1,0 +1,28 @@
+#logo {
+    height: 5rem;
+    /* border-radius: 50%; */
+}
+
+#Navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: aquamarine;
+    padding: 2.5px;
+}
+
+.nav-op {
+    color: rgb(137, 126, 126);
+    text-decoration: none;
+    margin-left: 1rem;
+}
+
+.nav-op:hover {
+    color: black;
+    transition: 1s;
+    text-decoration: none;
+}
+
+a:visited{
+    color: inherit;
+}

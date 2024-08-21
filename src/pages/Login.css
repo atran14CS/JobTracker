@@ -1,0 +1,17 @@
+.col-sm-2, .form-label, .form-check-label{
+    color:aquamarine;
+}
+
+.form-control {
+    width: 50%;
+}
+
+#login-header {
+    color: aquamarine;
+    text-decoration: none;
+}
+
+#login-form {
+    margin-top: 15rem;
+    margin-left: 15rem;
+}

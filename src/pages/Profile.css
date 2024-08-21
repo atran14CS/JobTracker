@@ -1,0 +1,20 @@
+#profile {
+    color: aquamarine;
+}
+
+#jobName {
+    color: black;
+}
+
+#createJob {
+    margin-top: 5rem;
+    margin-left: 36rem;
+    color: white;
+    display: flex;
+}
+
+#createJob button {
+    color: black;
+    width: 200px;
+    height: 30px;
+}

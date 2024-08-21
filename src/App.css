@@ -1,0 +1,26 @@
+body {
+    background-color: black;
+}
+
+#home-box {
+    margin-top: 25rem;
+    text-align: center;
+}
+
+#home-box h1 {
+    color: aquamarine;
+}
+
+.btn {
+    background-color: aquamarine;
+    height: 3rem;
+    width: 5rem;
+}
+
+#log-btn {
+    margin-right: 1rem;
+}
+
+#sign-btn {
+    margin-left: 1rem;
+}
