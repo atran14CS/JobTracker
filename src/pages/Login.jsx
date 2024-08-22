@@ -8,25 +8,24 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  console.log(email);
-  console.log(password);
-
-
   const handleLogin = async (e) => {
     e.preventDefault();
-    const res = await fetch('/api/login', {
+    const res = await fetch('http://localhost:5001/api/login', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json'},
-      body: JSON.stringify({ email, password}),
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password }),
     });
+
     const data = await res.json();
-    if(data.token) {
+    if (data.token && data.userId) {
       localStorage.setItem('token', data.token);
+      localStorage.setItem('userId', data.userId);
       window.location.href = '/profile';
     } else {
       console.error(data.message);
     }
   }
+
 
   return (
     <div>
