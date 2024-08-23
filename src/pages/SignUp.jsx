@@ -15,9 +15,9 @@ const SignUp = () => {
       body: JSON.stringify({ email, password }),
     });
     const data = await res.json();
-    if (data.token && data.user._id) {
+    if (data.token && data.userId) {
       localStorage.setItem('token', data.token);
-      localStorage.setItem('userid', data.user._id);
+      localStorage.setItem('userid', data.userId);
       window.location.href = '/profile';
     } else {
       console.error(data.message);

@@ -24,3 +24,8 @@ body {
 #sign-btn {
     margin-left: 1rem;
 }
+
+#home-logo {
+    height: 9rem;
+    width: 12rem;
+}

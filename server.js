@@ -6,6 +6,7 @@ import jwt from 'jsonwebtoken';
 import cors from 'cors';
 import User from './src/models/User.js';
 import * as dotenv from 'dotenv';
+import Job from './src/models/Job.js';
 dotenv.config();
 
 const app = express();
@@ -41,6 +42,26 @@ app.post('/api/login', async (req, res) => {
 
         const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET);
         res.json({ token, userId: user._id });
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({ message: 'Server error' });
+    }
+});
+
+app.post('/api/addjob', async (req, res) => {
+    console.log("hi");
+    const {title, date, jobStatus} = req.body;
+    console.log(title);
+    console.log(date);
+    console.log(jobStatus);
+    try {
+        if(title && date && jobStatus) {
+            let job = new Job({ title, date, jobStatus });
+            await job.save();
+            res.json({ message: "New Job Saved!" })
+        } else {
+            res.json({ message: "Missing Information" })
+        }
     } catch (err) {
         console.log(err);
         res.status(500).json({ message: 'Server error' });
