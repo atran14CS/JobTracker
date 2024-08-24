@@ -49,24 +49,39 @@ app.post('/api/login', async (req, res) => {
 });
 
 app.post('/api/addjob', async (req, res) => {
-    console.log("hi");
-    const {title, date, jobStatus} = req.body;
-    console.log(title);
-    console.log(date);
-    console.log(jobStatus);
+    let { title, date, jobStatus, userid } = req.body;
     try {
-        if(title && date && jobStatus) {
-            let job = new Job({ title, date, jobStatus });
+        if (title && date && jobStatus && userid) {
+            date = new Date(date);
+            if (isNaN(date)) {
+                return res.status(400).json({ message: "Invalid date format" });
+            }
+            let job = new Job({ title, dateApplied: date, jobStatus, userid });
             await job.save();
-            res.json({ message: "New Job Saved!" })
+            res.json({ message: "New Job Saved!" });
         } else {
-            res.json({ message: "Missing Information" })
+            res.status(400).json({ message: "Missing Information" });
         }
     } catch (err) {
         console.log(err);
         res.status(500).json({ message: 'Server error' });
     }
 });
+
+app.get('/api/userjobs', async (req, res) => {
+    const { userid } = req.query;
+    try {
+        if (!userid) return res.status(400).json({ message: 'Current user does not exist' });
+        // Find all jobs associated with the userid
+        const userjobs = await Job.find({ userid });
+        res.json(userjobs);
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({ message: 'Server error' });
+    }
+});
+
+
 
 
 const PORT = process.env.PORT || 5001;
