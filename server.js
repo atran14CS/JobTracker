@@ -72,12 +72,22 @@ app.get('/api/userjobs', async (req, res) => {
     const { userid } = req.query;
     try {
         if (!userid) return res.status(400).json({ message: 'Current user does not exist' });
-        // Find all jobs associated with the userid
         const userjobs = await Job.find({ userid });
         res.json(userjobs);
     } catch (err) {
         console.log(err);
         res.status(500).json({ message: 'Server error' });
+    }
+});
+
+app.delete("/api/deletejob", async(req, res) => {
+    const { jobid } = req.body;
+    try {
+        if(!jobid) return res.status(400).json({ message: "No jobid to delete"});
+        await Job.deleteOne({ jobid });
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({ message: 'Server error'});
     }
 });
 

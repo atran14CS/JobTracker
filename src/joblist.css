@@ -1,9 +1,8 @@
-/* Ensure white text color */
 td, th {
     color: white;
-    padding: 10px 20px; /* Adjust spacing as needed */
-    text-align: left; /* Align text to the left */
-    border-bottom: 1px solid #ddd; /* Add a bottom border to separate rows */
+    padding: 10px 20px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
 }
 
 /* Center table on the page */
@@ -14,13 +13,19 @@ td, th {
     border-collapse: collapse; /* Ensure borders are not doubled */
 }
 
-/* Make sure the header row stands out */
 th {
-    background-color: #333; /* Set a background color for the header */
+    background-color: #333;
     font-weight: bold;
 }
 
-/* Make each row easier to read by adding hover effects */
 tr:hover {
-    background-color: #555; /* Highlight row on hover */
+    background-color: #555;
+}
+
+.btn {
+    width: 7rem;
+}
+
+#delete {
+    border-bottom: none;
 }

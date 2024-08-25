@@ -1,8 +1,26 @@
 import { useState } from 'react';
 import './joblist.css';
+import { BsFillXSquareFill } from "react-icons/bs";
 
-const joblist = ({ jobs }) => {
-  const [updateStatus, setUpdateStatus] = useState('');
+
+const JobList = ({ jobs }) => {
+  const [updatedStatuses, setUpdatedStatuses] = useState({});
+
+  const handleStatusChange = (jobId, newStatus) => {
+    setUpdatedStatuses({
+      ...updatedStatuses,
+      [jobId]: newStatus,
+    });
+  };
+
+  const deleteJob = async(e) => {
+      await fetch("http://localhost:5001/api/deletejob", {
+        method: 'DELETE',
+        headers: { 'Content-type': 'application/json'},
+        query: JSON.stringify({ jobs }),
+    });
+    alert("job deleted")
+  }
 
   return (
     <div>
@@ -12,45 +30,51 @@ const joblist = ({ jobs }) => {
             <th>Title</th>
             <th>Status</th>
             <th>Date</th>
-            <th>Delete</th>
+            <th>Update</th>
           </tr>
         </thead>
         <tbody>
           {jobs.map((job, index) => (
             <tr key={index}>
               <td>{job.title}</td>
-              <td> 
+              <td>
                 <div className="dropdown">
-                  <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    {job.jobStatus ? job.jobStatus : updateStatus}
+                  <button
+                    className="btn btn-secondary dropdown-toggle"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    {updatedStatuses[job._id] || job.jobStatus}
                   </button>
                   <ul className="dropdown-menu">
-                    <li>
-                      <a className="dropdown-item" href="#" onClick={() => setUpdateStatus("submmited")}>Submmited</a>
-                    </li>
-                    <li>
-                      <a className="dropdown-item" href="#" onClick={() => setUpdateStatus("reviewed")}>Reviewed</a>
-                    </li>
-                    <li>
-                      <a className="dropdown-item" href="#" onClick={() => setUpdateStatus("interview")}>Interview</a>
-                    </li>
-                    <li>
-                      <a className="dropdown-item" href="#" onClick={() => setUpdateStatus("offer")}>Offer</a>
-                    </li>
-                    <li>
-                      <a className="dropdown-item" href="#" onClick={() => setUpdateStatus("notselected")}>Not Selected</a>
-                    </li>
+                    {['Submitted', 'Reviewed', 'Interview', 'Offer', 'Not Selected'].map(status => (
+                      <li key={status}>
+                        <a
+                          className="dropdown-item"
+                          href="#"
+                          onClick={() => handleStatusChange(job._id, status)}
+                        >
+                          {status}
+                        </a>
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </td>
               <td>{new Date(job.dateApplied).toLocaleDateString()}</td>
-              <td><button>Delete</button></td> {/* Placeholder for delete functionality */}
+              <td>
+                <button>Update</button>
+              </td>
+              <td id="delete">
+                <BsFillXSquareFill color='#dd2f10' onClick={deleteJob}/>
+              </td>
             </tr>
           ))}
         </tbody>
       </table>
     </div>
   );
-}
+};
 
-export default joblist;
+export default JobList;
