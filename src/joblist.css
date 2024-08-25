@@ -1,0 +1,26 @@
+/* Ensure white text color */
+td, th {
+    color: white;
+    padding: 10px 20px; /* Adjust spacing as needed */
+    text-align: left; /* Align text to the left */
+    border-bottom: 1px solid #ddd; /* Add a bottom border to separate rows */
+}
+
+/* Center table on the page */
+#job-table {
+    width: 100%;
+    max-width: 800px; /* You can adjust the max-width to fit your needs */
+    margin: 20px auto; /* Center the table horizontally */
+    border-collapse: collapse; /* Ensure borders are not doubled */
+}
+
+/* Make sure the header row stands out */
+th {
+    background-color: #333; /* Set a background color for the header */
+    font-weight: bold;
+}
+
+/* Make each row easier to read by adding hover effects */
+tr:hover {
+    background-color: #555; /* Highlight row on hover */
+}

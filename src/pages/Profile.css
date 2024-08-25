@@ -7,8 +7,10 @@
 }
 
 #createJob {
-    margin-top: 5rem;
-    margin-left: 26rem;
+    margin-top: 7rem;
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
     color: white;
     display: flex;
 }

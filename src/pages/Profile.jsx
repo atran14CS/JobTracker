@@ -1,6 +1,6 @@
 import './Profile.css';
 import Navbar from '../Navbar';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Joblist from '../joblist';
 
 const Profile = () => {
@@ -29,15 +29,21 @@ const Profile = () => {
     }
   }
 
+      // 66c92e0259dbfe93212e0696
+
   const userjobs = async () => {
-    const res = await fetch('http://localhost:5001/api/userjobs', {
+    const res = await fetch(`http://localhost:5001/api/userjobs?userid=${userid}`, {
       method: 'GET',
-      headers: { 'Content-Type': 'application/json'},
+      headers: { 'Content-Type': 'application/json' },
       query: JSON.stringify({ userid }),
     });
     const data = await res.json();
     setJobs(data);
-  }
+  };
+
+  useEffect(() => {
+    userjobs();
+  }, []);
 
 
   return (
