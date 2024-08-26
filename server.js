@@ -80,18 +80,18 @@ app.get('/api/userjobs', async (req, res) => {
     }
 });
 
-app.delete("/api/deletejob", async(req, res) => {
+app.delete("/api/deletejob", async (req, res) => {
     const { jobid } = req.body;
     try {
-        if(!jobid) return res.status(400).json({ message: "No jobid to delete"});
-        await Job.deleteOne({ jobid });
+        if (!jobid) return res.status(400).json({ message: "No jobid to delete" });
+        // Use the _id field for deletion
+        await Job.deleteOne({ _id: jobid });
+        res.json({ message: 'Job deleted successfully' });
     } catch (err) {
         console.log(err);
-        res.status(500).json({ message: 'Server error'});
+        res.status(500).json({ message: 'Server error' });
     }
 });
-
-
 
 
 const PORT = process.env.PORT || 5001;

@@ -2,8 +2,8 @@ import { useState } from 'react';
 import './joblist.css';
 import { BsFillXSquareFill } from "react-icons/bs";
 
-
-const JobList = ({ jobs }) => {
+const JobList = ({ jobs: initialJobs }) => {
+  const [jobs, setJobs] = useState(initialJobs);
   const [updatedStatuses, setUpdatedStatuses] = useState({});
 
   const handleStatusChange = (jobId, newStatus) => {
@@ -13,14 +13,20 @@ const JobList = ({ jobs }) => {
     });
   };
 
-  const deleteJob = async(e) => {
-      await fetch("http://localhost:5001/api/deletejob", {
-        method: 'DELETE',
-        headers: { 'Content-type': 'application/json'},
-        query: JSON.stringify({ jobs }),
+  const deleteJob = async (jobId) => {
+    const res = await fetch("http://localhost:5001/api/deletejob", {
+      method: 'DELETE',
+      headers: { 'Content-type': 'application/json' },
+      body: JSON.stringify({ jobid: jobId }),
     });
-    alert("job deleted")
-  }
+    if (res.ok) {
+      alert("Job deleted");
+      const updatedJobs = jobs.filter(job => job._id !== jobId);
+      setJobs(updatedJobs);
+    } else {
+      alert("Failed to delete job");
+    }
+  };
 
   return (
     <div>
@@ -31,6 +37,7 @@ const JobList = ({ jobs }) => {
             <th>Status</th>
             <th>Date</th>
             <th>Update</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
@@ -67,7 +74,7 @@ const JobList = ({ jobs }) => {
                 <button>Update</button>
               </td>
               <td id="delete">
-                <BsFillXSquareFill color='#dd2f10' onClick={deleteJob}/>
+                <BsFillXSquareFill color='#dd2f10' onClick={() => deleteJob(job._id)} />
               </td>
             </tr>
           ))}
