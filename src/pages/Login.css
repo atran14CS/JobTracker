@@ -8,10 +8,21 @@
 
 #login-header {
     color: aquamarine;
+}
+
+#login-form, #signup-form {
+    margin-top: 12rem;
+    margin-left: 40%;
+}
+
+a:link {
     text-decoration: none;
 }
 
-#login-form {
-    margin-top: 15rem;
-    margin-left: 15rem;
+.form-control {
+    width: 30%;
+}
+
+p {
+    margin-top: 1rem;
 }

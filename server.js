@@ -36,10 +36,8 @@ app.post('/api/login', async (req, res) => {
     try {
         let user = await User.findOne({ email });
         if (!user) return res.status(400).json({ message: 'User Does not Exist' });
-
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) return res.status(400).json({ message: 'Wrong Password' });
-
         const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET);
         res.json({ token, userId: user._id });
     } catch (err) {
@@ -50,6 +48,7 @@ app.post('/api/login', async (req, res) => {
 
 app.post('/api/addjob', async (req, res) => {
     let { title, date, jobStatus, userid } = req.body;
+    console.log(userid);
     try {
         if (title && date && jobStatus && userid) {
             date = new Date(date);
@@ -84,7 +83,6 @@ app.delete("/api/deletejob", async (req, res) => {
     const { jobid } = req.body;
     try {
         if (!jobid) return res.status(400).json({ message: "No jobid to delete" });
-        // Use the _id field for deletion
         await Job.deleteOne({ _id: jobid });
         res.json({ message: 'Job deleted successfully' });
     } catch (err) {
@@ -92,6 +90,27 @@ app.delete("/api/deletejob", async (req, res) => {
         res.status(500).json({ message: 'Server error' });
     }
 });
+
+app.patch("/api/updatejob", async (req, res) => {
+    const { jobid, status } = req.body;
+    try {
+        if (jobid && status) {
+            const existingJob = await Job.findOne({ _id: jobid });
+            if (existingJob) {
+                await Job.updateOne({ _id: jobid }, { jobStatus: status });
+                res.json({ message: `Job updated to ${status}` });
+            } else {
+                res.status(404).json({ message: 'Job not found' });
+            }
+        } else {
+            res.status(400).json({ message: 'Job ID and status are required' });
+        }
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({ message: 'Server error' });
+    }
+});
+
 
 
 const PORT = process.env.PORT || 5001;

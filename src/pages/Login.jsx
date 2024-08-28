@@ -4,7 +4,6 @@ import { useState } from 'react';
 
 const Login = () => {
 
-
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -19,30 +18,29 @@ const Login = () => {
     const data = await res.json();
     if (data.token && data.userId) {
       localStorage.setItem('token', data.token);
-      localStorage.setItem('userId', data.userId);
+      localStorage.setItem('userid', data.userId);
       window.location.href = '/profile';
     } else {
       console.error(data.message);
     }
   }
 
-
   return (
     <div>
       <Link to="/">
         <h1 id="login-header">JobTracker</h1>
       </Link>
-      <form id='login-form' action='POST'>
-        <div className="row mb-3">
-          <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">Email</label>
-          <div className="col-sm-10">
-            <input type="email" className="form-control" id="inputEmail3" onChange={(e) => {setEmail(e.target.value)}} placeholder='Email'/>
+      <form id='login-form' className="row g-3" action='POST'>
+        <div className="col-12">
+          <label htmlFor="inputEmail3" className="form-label">Email</label>
+          <div className="col-12">
+            <input type="email" className="form-control" onChange={(e) => {setEmail(e.target.value)}} placeholder='Email'/>
           </div>
         </div>
-        <div className="row mb-3">
-          <label htmlFor="inputPassword3" className="col-sm-2 col-form-label">Password</label>
-          <div className="col-sm-10">
-            <input type="password" className="form-control" id="inputPassword3" onChange={(e) => {setPassword(e.target.value)}} placeholder='Password'/>
+        <div className="col-12">
+          <label htmlFor="inputPassword3" className="form-label">Password</label>
+          <div className="col-12">
+            <input type="password" className="form-control" onChange={(e) => {setPassword(e.target.value)}} placeholder='Password'/>
           </div>
         </div>
         <button type="submit" className="btn btn-primary" onClick={handleLogin}>Log In</button>

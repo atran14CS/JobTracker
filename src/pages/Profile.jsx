@@ -10,6 +10,7 @@ const Profile = () => {
   const [jobs, setJobs] = useState([]);
 
   const userid = window.localStorage.getItem("userid");
+  // console.log("intial" + " " + userid);
 
   const handleAddJob = async (e) => {
     e.preventDefault();
@@ -21,17 +22,15 @@ const Profile = () => {
     const data = await res.json();
     if(data.message == "New Job Saved!") {
       alert("added job");
-      setTitle("");
-      setDate("")
-      setJobStatus("Job Status");
+      userjobs();
     } else {
       alert("Missing Information of one or more fields");
     }
   }
 
-      // 66c92e0259dbfe93212e0696
-
   const userjobs = async () => {
+    console.log
+    console.log(userid);
     const res = await fetch(`http://localhost:5001/api/userjobs?userid=${userid}`, {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },

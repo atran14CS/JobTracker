@@ -5,12 +5,12 @@ td, th {
     border-bottom: 1px solid #ddd;
 }
 
-/* Center table on the page */
+
 #job-table {
     width: 100%;
-    max-width: 800px; /* You can adjust the max-width to fit your needs */
-    margin: 20px auto; /* Center the table horizontally */
-    border-collapse: collapse; /* Ensure borders are not doubled */
+    max-width: 800px;
+    margin: 20px auto;
+    border-collapse: collapse;
 }
 
 th {
@@ -24,8 +24,13 @@ tr:hover {
 
 .btn {
     width: 7rem;
+    color: black;
 }
 
 #delete {
     border-bottom: none;
+}
+
+#currJobStatus {
+    color:black;
 }
