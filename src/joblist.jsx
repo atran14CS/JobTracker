@@ -57,7 +57,6 @@ const JobList = ({ jobs: initialJobs }) => {
             <th>Status</th>
             <th>Date</th>
             <th>Update</th>
-            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
@@ -97,7 +96,7 @@ const JobList = ({ jobs: initialJobs }) => {
                 <BsFillXSquareFill color='#dd2f10' onClick={() => deleteJob(job._id)} />
               </td>
             </tr>
-          )) : <tr><td colSpan="5">No jobs available</td></tr>}
+          )) : <tr><td colSpan="5">No jobs</td></tr>}
         </tbody>
       </table>
     </div>

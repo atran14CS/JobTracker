@@ -10,7 +10,6 @@ const Profile = () => {
   const [jobs, setJobs] = useState([]);
 
   const userid = window.localStorage.getItem("userid");
-  // console.log("intial" + " " + userid);
 
   const handleAddJob = async (e) => {
     e.preventDefault();

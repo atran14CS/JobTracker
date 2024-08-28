@@ -10,14 +10,18 @@
     padding: 2.5px;
 }
 
-.nav-op {
+#nav-op {
     color: black;
     text-decoration: none;
     margin-left: 1rem;
 }
 
-.nav-op:hover {
+#nav-op:hover {
     color: white;
     transition: 1s;
     text-decoration: none;
+}
+
+.btn .btn-primary {
+    color: black;
 }

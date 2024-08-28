@@ -6,7 +6,7 @@
     width: 50%;
 }
 
-#login-header {
+#login-header, p {
     color: aquamarine;
 }
 
@@ -25,4 +25,9 @@ a:link {
 
 p {
     margin-top: 1rem;
+}
+
+p:hover {
+    color: blue;
+    transition: 0.5s;
 }
