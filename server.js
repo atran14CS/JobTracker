@@ -47,15 +47,15 @@ app.post('/api/login', async (req, res) => {
 });
 
 app.post('/api/addjob', async (req, res) => {
-    let { title, date, jobStatus, userid } = req.body;
+    let { company, title, date, jobStatus, userid } = req.body;
     console.log(userid);
     try {
-        if (title && date && jobStatus && userid) {
+        if (company && title && date && jobStatus && userid) {
             date = new Date(date);
             if (isNaN(date)) {
                 return res.status(400).json({ message: "Invalid date format" });
             }
-            let job = new Job({ title, dateApplied: date, jobStatus, userid });
+            let job = new Job({ company, title, dateApplied: date, jobStatus, userid });
             await job.save();
             res.json({ message: "New Job Saved!" });
         } else {
@@ -110,8 +110,6 @@ app.patch("/api/updatejob", async (req, res) => {
         res.status(500).json({ message: 'Server error' });
     }
 });
-
-
 
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

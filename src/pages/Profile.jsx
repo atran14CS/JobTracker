@@ -4,19 +4,27 @@ import { useEffect, useState } from 'react';
 import Joblist from '../joblist';
 
 const Profile = () => {
+
+  // State Variables
   const [jobStatus, setJobStatus] = useState("Job Status");
   const [title, setTitle] = useState("");
+  const [company, setComapny] = useState("");
   const [date, setDate] = useState("");
   const [jobs, setJobs] = useState([]);
 
+  // current id of user logged in
   const userid = window.localStorage.getItem("userid");
 
+  /**
+   * Sends a POST request back to add job to current user
+   * @param {Event} e: the clicked section
+   */
   const handleAddJob = async (e) => {
     e.preventDefault();
     const res = await fetch('http://localhost:5001/api/addjob', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ title, date, jobStatus, userid}),
+      body: JSON.stringify({ company ,title, date, jobStatus, userid}),
     });
     const data = await res.json();
     if(data.message == "New Job Saved!") {
@@ -28,8 +36,6 @@ const Profile = () => {
   }
 
   const userjobs = async () => {
-    console.log
-    console.log(userid);
     const res = await fetch(`http://localhost:5001/api/userjobs?userid=${userid}`, {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
@@ -48,6 +54,9 @@ const Profile = () => {
     <div>
       <Navbar />
       <div id="createJob">
+        <div>
+          <input type="text" name='companyName' id='companyName' placeholder='Company' onChange={e => setComapny(e.target.value)} />
+        </div>
         <div>
           <input type="text" name='jobName' id='jobName' placeholder='Title Job' onChange={e => setTitle(e.target.value)} />
         </div>
@@ -77,8 +86,8 @@ const Profile = () => {
           <label htmlFor="dateApplied"></label>
           <input type="date" name='dateApplied' onChange={e => setDate(e.target.value)} />
         </div>
-        <button onClick={handleAddJob} type='submit'>Add Job</button>
-      </div>
+          <button onClick={handleAddJob} type='submit' className="addbtn" id="createjob">Add Job</button>
+        </div>
       <Joblist jobs={jobs} />
     </div>
   );

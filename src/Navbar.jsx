@@ -13,7 +13,7 @@ const Navbar = () => {
     <nav id="Navbar">
       <img src={logo} id='logo' alt="logo" />
       <div className="nav-links">
-        <a className='nav-op' onClick={handlelogout}><button className="btn btn-primary">Logout</button></a>
+          <button className="btn btn-primary" id="logoutbtn" onClick={handlelogout}>Logout</button>
       </div>
     </nav>
   );

@@ -53,6 +53,7 @@ const JobList = ({ jobs: initialJobs }) => {
       <table id="job-table">
         <thead>
           <tr>
+            <th>Company</th>
             <th>Title</th>
             <th>Status</th>
             <th>Date</th>
@@ -62,6 +63,7 @@ const JobList = ({ jobs: initialJobs }) => {
         <tbody>
           {jobs.length > 0 ? jobs.map((job, index) => (
             <tr key={index}>
+              <td>{job.company}</td>
               <td>{job.title}</td>
               <td>
                 <div className="dropdown">
