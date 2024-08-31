@@ -48,7 +48,6 @@ app.post('/api/login', async (req, res) => {
 
 app.post('/api/addjob', async (req, res) => {
     let { company, title, date, jobStatus, userid } = req.body;
-    console.log(userid);
     try {
         if (company && title && date && jobStatus && userid) {
             date = new Date(date);

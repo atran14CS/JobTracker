@@ -1,35 +1,41 @@
-#profile {
-    color: aquamarine;
-}
-
 #createJob {
     margin-top: 7rem;
     margin-bottom: 2rem;
-    max-width: fit-content;
-    margin-left: 25rem;
-    color: white;
+    max-width: 100%; /* Ensure the container spans the width of its parent */
     display: flex;
+    justify-content: center; /* Center the inputs and button */
+    align-items: center; /* Vertically center the elements */
+    gap: 1rem; /* Space between input fields and button */
+    margin-right: 3rem;
 }
 
+#createJob input,
+#createJob .dropdown,
 #createJob button {
-    color: black;
-    width: 200px;
-    height: 30px;
+    height: 46px; /* Ensure consistent height */
 }
 
-input {
+#createJob input {
     padding: 6px 12px;
     background: rgb(31, 32, 35);
     border: 1px solid rgb(60, 63, 68);
     border-radius: 4px;
     font-size: 13px;
     color: rgb(247, 248, 248);
-    height: 46px;
-    appearance: none;
     transition: border 0.15s ease 0s;
 }
 
-:focus{
+#createJob .dropdown button {
+    height: 46px;
+    width: auto;
+}
+
+#createJob button {
+    color: black;
+    width: 100px; /* Adjust width as needed */
+}
+
+:focus {
     outline: none;
     box-shadow: none;
     border-color: rgb(100, 153, 255);

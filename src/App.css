@@ -29,3 +29,10 @@ body {
     height: 9rem;
     width: 12rem;
 }
+
+footer {
+    position: absolute;
+    margin-top: auto;
+    background-color: aquamarine;
+    height: 5rem;
+}

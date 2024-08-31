@@ -1,7 +1,7 @@
 export const JOB_STATUS = {
-    SUBMITTED: "submmited",
-    REVIEWED: "reviewed",
-    INTERVIEW: "interview",
-    OFFER: "offer",
-    NOTSELECTED: "notselected"
+    SUBMITTED: "Submmited",
+    REVIEWED: "Reviewed",
+    INTERVIEW: "Interview",
+    OFFER: "Offer",
+    NOTSELECTED: "Not Selected"
 };

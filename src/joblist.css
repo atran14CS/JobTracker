@@ -23,7 +23,7 @@ tr:hover {
 }
 
 .btn {
-    width: 7rem;
+    width: 8rem;
     color: black;
 }
 
@@ -33,4 +33,13 @@ tr:hover {
 
 #currJobStatus {
     color:black;
+}
+
+#update-btn {
+    background-color: #f29d26;
+}
+
+#update-btn:hover {
+    background-color: aquamarine;
+    transition: 1.5s;
 }

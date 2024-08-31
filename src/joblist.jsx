@@ -92,7 +92,9 @@ const JobList = ({ jobs: initialJobs }) => {
               </td>
               <td>{new Date(job.dateApplied).toLocaleDateString()}</td>
               <td>
-              <button onClick={() => updateJobStatus(job._id, updatedStatuses[job._id] || job.jobStatus)}>Update</button>
+              <button 
+              onClick={() => updateJobStatus(job._id, updatedStatuses[job._id] || job.jobStatus)}
+              id="update-btn">Update</button>
               </td>
               <td id="delete">
                 <BsFillXSquareFill color='#dd2f10' onClick={() => deleteJob(job._id)} />

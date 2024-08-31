@@ -15,6 +15,9 @@ const Home = () => {
           <button className="btn" id="sign-btn">SignUp</button>
         </Link>
       </div>
+      <footer>
+        
+      </footer>
     </div>
   );
 };

@@ -52,45 +52,55 @@ const Profile = () => {
 
   return (
     <div>
-      <Navbar />
-      <div id="createJob">
-        <div>
-          <input type="text" name='companyName' id='companyName' placeholder='Company' onChange={e => setComapny(e.target.value)} />
+        <Navbar />
+        <div id="createJob">
+            <input 
+                type="text" 
+                name='companyName' 
+                id='companyName' 
+                placeholder='Company' 
+                onChange={e => setComapny(e.target.value)} 
+            />
+            <input 
+                type="text" 
+                name='jobName' 
+                id='jobName' 
+                placeholder='Title Job' 
+                onChange={e => setTitle(e.target.value)} 
+            />
+            <div className="dropdown">
+                <button 
+                    className="btn btn-secondary dropdown-toggle" 
+                    type="button" 
+                    data-bs-toggle="dropdown" 
+                    aria-expanded="false">
+                    {jobStatus}
+                </button>
+                <ul className="dropdown-menu">
+                    <li><a className="dropdown-item" href="#" onClick={() => setJobStatus("submitted")}>Submitted</a></li>
+                    <li><a className="dropdown-item" href="#" onClick={() => setJobStatus("reviewed")}>Reviewed</a></li>
+                    <li><a className="dropdown-item" href="#" onClick={() => setJobStatus("interview")}>Interview</a></li>
+                    <li><a className="dropdown-item" href="#" onClick={() => setJobStatus("offer")}>Offer</a></li>
+                    <li><a className="dropdown-item" href="#" onClick={() => setJobStatus("not selected")}>Not Selected</a></li>
+                </ul>
+            </div>
+            <input 
+                type="date" 
+                name='dateApplied' 
+                onChange={e => setDate(e.target.value)} 
+            />
+            <button 
+                onClick={handleAddJob} 
+                type='submit' 
+                className="addbtn" 
+                id="createjob">
+                Add Job
+            </button>
         </div>
-        <div>
-          <input type="text" name='jobName' id='jobName' placeholder='Title Job' onChange={e => setTitle(e.target.value)} />
-        </div>
-        <div className="dropdown">
-          <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            {jobStatus}
-          </button>
-          <ul className="dropdown-menu">
-            <li>
-              <a className="dropdown-item" href="#" onClick={() => setJobStatus("submmited")}>Submmited</a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#" onClick={() => setJobStatus("reviewed")}>Reviewed</a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#" onClick={() => setJobStatus("interview")}>Interview</a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#" onClick={() => setJobStatus("offer")}>Offer</a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#" onClick={() => setJobStatus("notselected")}>Not Selected</a>
-            </li>
-          </ul>
-        </div>
-        <div id="calendar">
-          <label htmlFor="dateApplied"></label>
-          <input type="date" name='dateApplied' onChange={e => setDate(e.target.value)} />
-        </div>
-          <button onClick={handleAddJob} type='submit' className="addbtn" id="createjob">Add Job</button>
-        </div>
-      <Joblist jobs={jobs} />
+        <Joblist jobs={jobs} />
     </div>
-  );
+);
+
 }
 
 export default Profile;
