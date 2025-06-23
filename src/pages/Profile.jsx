@@ -58,14 +58,14 @@ const Profile = () => {
                 type="text" 
                 name='companyName' 
                 id='companyName' 
-                placeholder='Company' 
+                placeholder='Company Name' 
                 onChange={e => setComapny(e.target.value)} 
             />
             <input 
                 type="text" 
                 name='jobName' 
                 id='jobName' 
-                placeholder='Title Job' 
+                placeholder='Job Title' 
                 onChange={e => setTitle(e.target.value)} 
             />
             <div className="dropdown">
@@ -77,11 +77,11 @@ const Profile = () => {
                     {jobStatus}
                 </button>
                 <ul className="dropdown-menu">
-                    <li><a className="dropdown-item" href="#" onClick={() => setJobStatus("submitted")}>Submitted</a></li>
-                    <li><a className="dropdown-item" href="#" onClick={() => setJobStatus("reviewed")}>Reviewed</a></li>
-                    <li><a className="dropdown-item" href="#" onClick={() => setJobStatus("interview")}>Interview</a></li>
-                    <li><a className="dropdown-item" href="#" onClick={() => setJobStatus("offer")}>Offer</a></li>
-                    <li><a className="dropdown-item" href="#" onClick={() => setJobStatus("not selected")}>Not Selected</a></li>
+                    <li><a className="dropdown-item" href="#" onClick={() => setJobStatus("Submitted")}>Submitted</a></li>
+                    <li><a className="dropdown-item" href="#" onClick={() => setJobStatus("Reviewed")}>Reviewed</a></li>
+                    <li><a className="dropdown-item" href="#" onClick={() => setJobStatus("Interview")}>Interview</a></li>
+                    <li><a className="dropdown-item" href="#" onClick={() => setJobStatus("Offer")}>Offer</a></li>
+                    <li><a className="dropdown-item" href="#" onClick={() => setJobStatus("Not Selected")}>Not Selected</a></li>
                 </ul>
             </div>
             <input 
