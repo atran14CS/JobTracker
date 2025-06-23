@@ -31,8 +31,37 @@ body {
 }
 
 footer {
-    position: absolute;
-    margin-top: auto;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
     background-color: aquamarine;
     height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#home-box h1 {
+    color: aquamarine;
+    position: absolute; /* remove it from the normal flow */
+    top: 1rem; /* distance from the top */
+    left: 1rem; /* distance from the left */
+    margin: 0; /* remove default margin */
+}
+
+.login-options {
+    position: absolute; /* remove it from the normal flow */
+    top: 1rem; /* distance from the top */
+    right: 1rem; /* distance from the left */
+    margin: 0; /* remove default margin */
+}
+
+
+#homePic {
+    width: 40%;
+    height: 40%;
+    border: 5px solid aquamarine; /* makes the border visible */
+    margin-top: -15%;
+    margin-right: 55%;
 }

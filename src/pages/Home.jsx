@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import '../App.css';
+import homePic from '../photos/homepic.png';
 
 const Home = () => {
 
@@ -15,8 +16,8 @@ const Home = () => {
           <button className="btn" id="sign-btn">SignUp</button>
         </Link>
       </div>
+        <img src={homePic} alt="homePic" id='homePic'/>
       <footer>
-        
       </footer>
     </div>
   );
