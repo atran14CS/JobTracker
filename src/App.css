@@ -65,3 +65,21 @@ footer {
     margin-top: -15%;
     margin-right: 55%;
 }
+
+h2 {
+    color: aquamarine;
+    margin-bottom: 7rem;
+    margin-left: 40%;
+}
+
+#gitHubIcon {
+    font-size: 3rem;  /* Controls the icon size */
+    color: black;
+    cursor: pointer;
+}
+
+#gitHubIcon:hover {
+    color: white;
+    transform: scale(1.2);
+    transition: transform 0.2s ease, color 0.2s ease;
+}

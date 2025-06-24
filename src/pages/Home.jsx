@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import '../App.css';
 import homePic from '../photos/homepic.png';
+import { FaGithub } from "react-icons/fa";
 
 const Home = () => {
 
@@ -16,8 +17,12 @@ const Home = () => {
           <button className="btn" id="sign-btn">SignUp</button>
         </Link>
       </div>
+      <div id='hero'>
         <img src={homePic} alt="homePic" id='homePic'/>
+        <h2>Organized your job search effortlessly</h2>
+      </div>
       <footer>
+      <a href="https://github.com/atran14CS" target="_blank"><FaGithub id="gitHubIcon" /></a>
       </footer>
     </div>
   );
