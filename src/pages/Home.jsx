@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import '../App.css';
+import '../../src/App.css';
 import homePic from '../photos/homepic.png';
 import { FaGithub } from "react-icons/fa";
 

@@ -1,4 +1,4 @@
-import logo from './photos/JobTracker-.png';
+import logo from '../photos/JobTracker-.png';
 import './Navbar.css';
 
 const Navbar = () => {

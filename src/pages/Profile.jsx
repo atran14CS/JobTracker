@@ -1,7 +1,7 @@
 import './Profile.css';
-import Navbar from '../Navbar';
+import Navbar from '../componets/Navbar';
 import { useEffect, useState } from 'react';
-import Joblist from '../joblist';
+import Joblist from '../componets/joblist';
 
 const Profile = () => {
 

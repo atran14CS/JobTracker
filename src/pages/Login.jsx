@@ -1,5 +1,5 @@
-import LoginSignup from '../LoginSignup';
-import './Login.css';
+import LoginSignup from '../componets/LoginSignup';
+import '../pages/Login.css';
 
 const Login = () => {
 
