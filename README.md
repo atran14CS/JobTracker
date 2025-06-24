@@ -4,4 +4,4 @@ A simple job tracking web application.
 
 ## Home Page Preview
 
-<img src="./photos/preview.png" alt="preview page" width="600"/>
+<img src="./src/photos/preview.png" alt="preview page" width="600"/>
