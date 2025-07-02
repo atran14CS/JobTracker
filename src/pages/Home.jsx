@@ -8,7 +8,8 @@ const Home = () => {
 
   return (
     <div id="home-box">
-      <h1>JobTracker </h1>
+      <section id='nav-section'>
+        <h1>JobTracker </h1>
       <div className="login-options">
         <Link to="/login">
           <button className="btn" id="log-btn">Login</button>
@@ -17,6 +18,7 @@ const Home = () => {
           <button className="btn" id="sign-btn">SignUp</button>
         </Link>
       </div>
+      </section>
       <div id='hero'>
         <img src={homePic} alt="homePic" id='homePic'/>
         <h2>Save time and organize your job search effortlessly.</h2>
