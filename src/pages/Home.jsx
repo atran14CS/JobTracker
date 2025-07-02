@@ -8,7 +8,7 @@ const Home = () => {
 
   return (
     <div id="home-box">
-      <h1>Job Tracker </h1>
+      <h1>JobTracker </h1>
       <div className="login-options">
         <Link to="/login">
           <button className="btn" id="log-btn">Login</button>
@@ -19,7 +19,7 @@ const Home = () => {
       </div>
       <div id='hero'>
         <img src={homePic} alt="homePic" id='homePic'/>
-        <h2>Organized your job search effortlessly</h2>
+        <h2>Save time and organize your job search effortlessly.</h2>
       </div>
       <footer>
       <a href="https://github.com/atran14CS" target="_blank"><FaGithub id="gitHubIcon" /></a>
