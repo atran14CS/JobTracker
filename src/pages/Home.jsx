@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import '../../src/App.css';
-import homePic from '../photos/homepic.png';
+import homePic from '../photos/homePic.png';
 import { FaGithub } from "react-icons/fa";
 
 const Home = () => {
